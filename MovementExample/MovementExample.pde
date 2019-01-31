@@ -1,6 +1,4 @@
-//Movement Example Code
-//Please note, what I have here is not the only method to complete this assignment. 
-//If you would like to scrap it, you may.
+//Ship Movement - Caleb
 
 //variables for position
 float xPos =0;
@@ -12,14 +10,19 @@ boolean left = false;
 boolean up = false;
 boolean down = false;
 
+////Boolean for flipping ship direction
+//boolean drawShip = true;
+
 //
 PImage ship;
 PImage flip;
 
 void setup() {
   //window modifications
-  size(1000, 800);
-  background(255);
+  size(800, 500);
+  background(233, 255, 255);
+  
+  imageMode(CENTER);
 
   //initial position
   xPos = width/2;
@@ -35,18 +38,23 @@ void setup() {
 
 void draw() {
   //wipe
-  background(255);
+  background(233, 255, 255);
 
+  //draw shape
+  //if (drawShip) {
+  image(ship, xPos, yPos);
+  //}
   //update position
   if (left) {
     xPos = xPos - 1;
+    //drawShip = true;
   }
   if (right) {
     xPos++;
     
-    
-    // insert ship horizontal flipper here
-
+  // drawShip = false; 
+  //  // insert ship horizontal flipper here
+  //image(flip, xPos, yPos);
 
 }
   if (up) {
@@ -69,8 +77,7 @@ void draw() {
   if (yPos > height) {
     yPos = 0;
   }
-  //draw shape
-  image(ship, xPos, yPos);
+ 
 }
 
 void keyPressed() {
